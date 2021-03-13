@@ -9,7 +9,7 @@ sap.ui.define([
 
 		return Controller.extend("trainning.bp.controller.App", {
 			onInit: function () {
-
+     
 			}
 		});
 	});
