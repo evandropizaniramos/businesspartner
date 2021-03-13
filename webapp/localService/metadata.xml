@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZBP_000_SRV" xml:lang="en" sap:schema-version="1"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="BusinessPartner" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PartnerId"/>
+                </Key>
+                <Property Name="PartnerId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PartnerType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Partn.Cat." sap:updatable="false" sap:filterable="false"/>
+                <Property Name="PartnerName1" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Name 1/last nm"/>
+                <Property Name="PartnerName2" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Name2/first nme"/>
+                <Property Name="SearchTerm1" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Search term 1"/>
+                <Property Name="SearchTerm2" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Search term 2"/>
+                <Property Name="Street" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Street" sap:filterable="false"/>
+                <Property Name="HouseNumber" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="House Number" sap:filterable="false"/>
+                <Property Name="District" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="District" sap:filterable="false"/>
+                <Property Name="City" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="City" sap:filterable="false"/>
+                <Property Name="Region" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Region" sap:filterable="false"/>
+                <Property Name="ZipCode" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Postal Code" sap:filterable="false"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Country" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZBP_000_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="BusinessPartnerSet" EntityType="ZBP_000_SRV.BusinessPartner" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://s4hana:9222/sap/opu/odata/sap/ZBP_000_SRV/$metadata"
+                xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link rel="latest-version" href="http://s4hana:9222/sap/opu/odata/sap/ZBP_000_SRV/$metadata"
+                    xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

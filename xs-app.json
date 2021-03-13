@@ -1,0 +1,16 @@
+{
+  "authenticationMethod": "none",
+  "routes": [
+    {
+      "authenticationType": "none",
+      "csrfProtection": false,
+      "source": "^/sap/opu/odata/sap/ZBP_000_SRV/",
+      "destination": "Trainning"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt"
+    }
+  ]
+}
