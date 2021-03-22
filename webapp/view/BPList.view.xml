@@ -1,0 +1,62 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:layout="sap.ui.layout" controllerName="trainning.bp.controller.BPList" displayBlock="true">
+   <f:DynamicPage showFooter="true"> 
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="{i18n>appTitle}"/>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <Table id="tableBPList" width="100%" items="{path: '/BusinessPartnerSet', parameters: { expand: 'CountryDetail' }}">
+                <items>
+                    <ColumnListItem type="Active">
+                        <cells>
+                            <ObjectIdentifier title="{PartnerName1} {PartnerName2}" text="{PartnerId}"/>
+                            <Text text="{path: 'PartnerType', formatter: '.formatPartnerType'}"/>
+                            <Text text="{Region}"/>
+                            <Text text="{CountryDetail/LandName} ({Country})"/>
+                            <layout:HorizontalLayout>
+                                <Button id="buttonDisplay" icon="sap-icon://display" press="onDisplayPress" tooltip="{i18n>buttonDisplay}"/>
+                                <Button id="buttonEdit" icon="sap-icon://edit" press="onEditPress" tooltip="{i18n>buttonEdit}"/>
+                            </layout:HorizontalLayout>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+                <columns>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>txtPartner}"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>txtPartnerType}"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>txtRegion}"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="{i18n>txtCountry}"/>
+                        </header>
+                    </Column>
+                    <Column hAlign="Center">
+                        <header>
+                            <Label text="{i18n>txtOptions}"/>
+                        </header>
+                    </Column>
+                </columns>
+            </Table>
+        </f:content>
+        <f:footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button id="buttonCreate" text="{i18n>btnCreate}" type="Accept" press="onCreatePress"/>
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>
+</mvc:View>

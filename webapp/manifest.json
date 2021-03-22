@@ -98,10 +98,28 @@
       },
       "routes": [
         {
-          "name": "RouteApp",
-          "pattern": "RouteApp",
+          "name": "ToBPList",
+          "pattern": "",
           "target": [
-            "TargetApp"
+            "TargetBPList"
+          ]
+        }, {
+          "name": "ToBPCreate",
+          "pattern": "bpCreate",
+          "target": [
+            "TargetBPDetail"
+          ]
+        }, {
+          "name": "ToBPEdit",
+          "pattern": "{PartnerId}/bpEdit",
+          "target": [
+            "TargetBPDetail"
+          ]
+        }, {
+          "name": "ToBPDisplay",
+          "pattern": "{PartnerId}/bpDisplay",
+          "target": [
+            "TargetBPDetail"
           ]
         }
       ],
@@ -112,6 +130,22 @@
           "clearControlAggregation": false,
           "viewId": "App",
           "viewName": "App"
+        },
+
+        "TargetBPList": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "BPList",
+          "viewName": "BPList"
+        },
+
+        "TargetBPDetail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "BPDetail",
+          "viewName": "BPDetail"
         }
       }
     }

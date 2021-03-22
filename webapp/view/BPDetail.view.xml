@@ -1,0 +1,96 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" controllerName="trainning.bp.controller.BPDetail" displayBlock="true">
+   <f:DynamicPage showFooter="true"> 
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="{PartnerName1} {PartnerName2}"/>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <form:Form editable="{control>/edit}" width="100%">
+                <form:title>
+                    <core:Title text="{i18n>txtBPDetail}" level="Auto"/>
+                </form:title>
+                <form:formContainers>
+                    <form:FormContainer title="{i18n>txtCentralData}">
+                        <form:formElements>
+                            <form:FormElement label="{i18n>txtPartnerId}">
+                                <form:fields>
+                                    <Input value="{PartnerId}" width="100%" editable="false"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>txtPartnerType}">
+                                <form:fields>
+                                    <Input value="{PartnerType}" description="{= ${PartnerType} === '1' ? ${i18n>txtOrganization} : ( ${PartnerType} === '2' ? ${i18n>txtPerson} : '' ) }" width="100%" editable="{control>/edit}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>txtPartnerName}">
+                                <form:fields>
+                                    <Input value="{PartnerName1}" width="100%" editable="{control>/edit}"/>
+                                    <Input value="{PartnerName2}" width="100%" editable="{control>/edit}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>txtSearchTerm}">
+                                <form:fields>
+                                    <Input value="{SearchTerm1}" width="100%" editable="{control>/edit}"/>
+                                    <Input value="{SearchTerm2}" width="100%" editable="{control>/edit}"/>
+                                </form:fields>
+                            </form:FormElement>
+                        </form:formElements>
+                    </form:FormContainer>
+                    <form:FormContainer title="{i18n>txtAddressData}">
+                        <form:formElements>
+                            <form:FormElement label="{i18n>txtStreet}">
+                                <form:fields>
+                                    <Input value="{Street}" width="100%" editable="{control>/edit}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>txtHouseNumber}">
+                                <form:fields>
+                                    <Input value="{HouseNumber}" width="100%" editable="{control>/edit}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>txtDistrict}">
+                                <form:fields>
+                                    <Input value="{District}" width="100%" editable="{control>/edit}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>txtCity}">
+                                <form:fields>
+                                    <Input value="{City}" width="100%" editable="{control>/edit}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>txtRegion}">
+                                <form:fields>
+                                    <Input value="{Region}" width="100%" editable="{control>/edit}"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>txtCountry}">
+                                <form:fields>
+                                    <Input id="inputCountry" value="{Country}" description="{CountryDetail/LandName}" width="100%" editable="{control>/edit}" showValueHelp="true" valueHelpRequest="openCountryDialog"/>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement label="{i18n>txtZipCode}">
+                                <form:fields>
+                                    <Input value="{ZipCode}" width="100%" editable="{control>/edit}"/>
+                                </form:fields>
+                            </form:FormElement>
+                        </form:formElements>
+                    </form:FormContainer>
+                </form:formContainers>
+                <form:layout>
+                    <form:ResponsiveGridLayout/>
+                </form:layout>
+            </form:Form>
+        </f:content>
+        <f:footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button id="buttonSave" text="{i18n>btnSave}" type="Accept" press="onSavePress" visible="{control>/edit}"/>
+                <Button id="buttonCancel" text="{i18n>btnCancel}" type="Reject" press="onCancelPress" visible="{control>/edit}"/>
+                <Button id="buttonBack" text="{i18n>btnBack}" type="Accept" press="onBackPress" visible="{= !(${control>/edit})}"/>
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>
+</mvc:View>
